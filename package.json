@@ -1,0 +1,18 @@
+{
+  "name": "cash-sprint-7d",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FilingPulse — SEC EDGAR 8-K & Form 4 Real-Time Signal API (Cloudflare Workers + x402 + Stripe)",
+  "workspaces": [
+    "packages/core",
+    "apps/x402-api"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace=packages/core && npm run typecheck --workspace=apps/x402-api",
+    "test": "npm test --workspace=packages/core && npm test --workspace=apps/x402-api",
+    "dev:api": "npm run dev --workspace=apps/x402-api"
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "@filingpulse/x402-api",
+  "version": "1.0.0",
+  "description": "FilingPulse Cloudflare Workers API with Hono + @x402/hono (USDC on Base) + Stripe API key rail",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --port 8787",
+    "deploy": "wrangler deploy",
+    "deploy:dry-run": "wrangler deploy --dry-run",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@filingpulse/core": "*",
+    "@x402/core": "latest",
+    "@x402/evm": "latest",
+    "@x402/hono": "latest",
+    "hono": "^4.7.5"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250321.0",
+    "typescript": "^5.8.2",
+    "vitest": "^3.1.1",
+    "wrangler": "^4.0.0"
+  }
+}

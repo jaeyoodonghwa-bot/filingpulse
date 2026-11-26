@@ -1,0 +1,66 @@
+{
+  "title": "FilingPulse SEC Signal Extractor Input",
+  "description": "Configure tickers and signal options. Designed for both direct Apify runs and MCP agent invocation with strict cost guardrails.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "tickers": {
+      "title": "Stock Tickers",
+      "type": "array",
+      "description": "List of US public equity tickers (e.g., AAPL, NVDA, MSFT) to fetch SEC EDGAR 8-K and Form 4 signals for.",
+      "editor": "stringList",
+      "default": ["AAPL", "NVDA"],
+      "prefill": ["AAPL", "NVDA"],
+      "minItems": 1,
+      "maxItems": 25
+    },
+    "include8k": {
+      "title": "Include Form 8-K Material Events",
+      "type": "boolean",
+      "description": "Extract and classify Form 8-K material items (1.01, 2.02, 4.02, 5.02, 8.01).",
+      "default": true
+    },
+    "includeForm4": {
+      "title": "Include Form 4 Insider Signals",
+      "type": "boolean",
+      "description": "Extract Form 4 insider open-market transactions and compute cluster buy/sell scores.",
+      "default": true
+    },
+    "includeMaterialDiff": {
+      "title": "Include 8-K Material Diff Summary",
+      "type": "boolean",
+      "description": "Include deterministic item-level diff against prior 8-K filings per ticker.",
+      "default": true
+    },
+    "maxItems": {
+      "title": "Max Signal Items (MCP Budget Guardrail)",
+      "type": "integer",
+      "description": "Hard upper bound on total filing-signal records returned and billed ($0.005 each). Defaults to 20 ($0.10 max) for safe autonomous MCP agent use.",
+      "default": 20,
+      "minimum": 1,
+      "maximum": 200
+    },
+    "lookbackDays": {
+      "title": "Lookback Window (Days)",
+      "type": "integer",
+      "description": "Number of calendar days to include when filtering recent SEC filings.",
+      "default": 30,
+      "minimum": 1,
+      "maximum": 365
+    },
+    "userAgent": {
+      "title": "SEC EDGAR User-Agent Contact",
+      "type": "string",
+      "description": "Optional SEC Fair Access compliant User-Agent string (e.g., 'AppName/1.0 contact@domain.com'). Uses FilingPulse default if omitted.",
+      "editor": "textfield",
+      "default": "FilingPulse/1.0 (contact@filingpulse.dev)"
+    },
+    "fixtureMode": {
+      "title": "Offline Deterministic Fixture Mode",
+      "type": "boolean",
+      "description": "When enabled, returns deterministic fixture signals without calling live data.sec.gov endpoints (ideal for integration testing and dry-runs).",
+      "default": false
+    }
+  },
+  "required": ["tickers"]
+}

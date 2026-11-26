@@ -1,0 +1,23 @@
+{
+  "name": "@filingpulse/hybrid-ai-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FilingPulse Hybrid AI Portfolio Risk Co-Pilot — Devpost #BuildHybridAI (Firebase AI Logic PREFER_ON_DEVICE + Cloud Gemini Fallback)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 4173",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4173",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@filingpulse/core": "file:../../packages/core",
+    "firebase": "latest"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2",
+    "vite": "^6.2.5",
+    "vitest": "^3.1.1"
+  }
+}

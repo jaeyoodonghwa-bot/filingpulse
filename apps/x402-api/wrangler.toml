@@ -1,0 +1,24 @@
+name = "filingpulse-x402-api"
+main = "src/index.ts"
+compatibility_date = "2025-03-21"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+# Replace PAY_TO_ADDRESS with your public Base USDC receiving address (0x...) before live deploy.
+PAY_TO_ADDRESS = "0x000000000000000000000000000000000000dEaD"
+FACILITATOR_URL = "https://x402.org/facilitator"
+X402_NETWORK = "eip155:8453"
+STRIPE_PAYMENT_LINK = "https://buy.stripe.com/placeholder-filingpulse-pro"
+SEC_USER_AGENT = "FilingPulse/1.0 (ops@filingpulse.dev)"
+DEMO_API_KEY = "fp_demo_preview_2026"
+DEFAULT_DATA_MODE = "live"
+FALLBACK_TO_FIXTURE = "true"
+
+# Uncomment and bind Cloudflare KV namespaces before live production deploy:
+# [[kv_namespaces]]
+# binding = "API_KEYS_KV"
+# id = "REPLACE_WITH_API_KEYS_KV_ID"
+#
+# [[kv_namespaces]]
+# binding = "CACHE_KV"
+# id = "REPLACE_WITH_CACHE_KV_ID"

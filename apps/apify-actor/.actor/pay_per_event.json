@@ -1,0 +1,7 @@
+{
+  "filing-signal": {
+    "eventTitle": "SEC Filing Signal Extracted",
+    "eventDescription": "Charged once per structured SEC EDGAR 8-K material event or Form 4 insider cluster signal pushed to the output dataset.",
+    "eventPriceUsd": 0.005
+  }
+}

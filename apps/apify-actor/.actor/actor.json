@@ -1,0 +1,51 @@
+{
+  "actorSpecification": 1,
+  "name": "filing-pulse-sec-signals",
+  "title": "FilingPulse — SEC EDGAR 8-K & Form 4 Signal Extractor",
+  "description": "Deterministic SEC EDGAR 8-K material event classifier and Form 4 insider cluster signal extractor. Pay-Per-Event ($0.005/filing-signal) and MCP-ready with maxItems & maxTotalChargeUsd guardrails.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "meta": {
+    "templateId": "ts-empty"
+  },
+  "input": "./input_schema.json",
+  "dockerfile": "../Dockerfile",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "title": "SEC Filing Signals",
+      "views": {
+        "overview": {
+          "title": "Filing Signals Overview",
+          "transformation": {
+            "fields": [
+              "ticker",
+              "cik",
+              "signalType",
+              "formType",
+              "filedAt",
+              "severity",
+              "score",
+              "summary",
+              "filingUrl"
+            ]
+          },
+          "display": {
+            "component": "table",
+            "properties": {
+              "ticker": { "label": "Ticker", "format": "text" },
+              "cik": { "label": "CIK", "format": "text" },
+              "signalType": { "label": "Signal Type", "format": "text" },
+              "formType": { "label": "Form", "format": "text" },
+              "filedAt": { "label": "Filed At", "format": "date" },
+              "severity": { "label": "Severity", "format": "text" },
+              "score": { "label": "Score", "format": "number" },
+              "summary": { "label": "Summary", "format": "text" },
+              "filingUrl": { "label": "SEC URL", "format": "link" }
+            }
+          }
+        }
+      }
+    }
+  }
+}
